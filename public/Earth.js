@@ -7,19 +7,20 @@ import { useGLTF } from '@react-three/drei'
 
 export default function Model({ ...props }) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/earth.glb')
+  const { nodes, materials } = useGLTF('/earth-transformed.glb')
   return (
     <group ref={group} {...props} dispose={null}>
+      <mesh geometry={nodes.Earth001.geometry} material={materials['earth.001']} />
       <mesh geometry={nodes.smallPlanet.geometry} material={materials.smallPlanetMaterial} />
       <mesh geometry={nodes.Rock_1.geometry} material={materials.Rock_set} position={[8.59, -7.46, -5.85]} rotation={[Math.PI / 2, 0, 0]} scale={0.05} />
+      <mesh geometry={nodes.Rock_1001.geometry} material={materials.Rock_set} position={[16.4, -3.15, -9.34]} rotation={[Math.PI / 2, 0, 0]} scale={0.13} />
+      <mesh geometry={nodes.Rock_1002.geometry} material={materials.Rock_set} position={[8.43, -7.55, -2.49]} rotation={[1.58, 0.82, -2.97]} scale={0.05} />
       <mesh geometry={nodes.Rock_2.geometry} material={materials.Rock_set} position={[4.33, -8.93, -1.73]} rotation={[Math.PI / 2, 0, 0]} scale={0.05} />
       <mesh geometry={nodes.Rock_3.geometry} material={materials.Rock_set} position={[2.9, -7.35, -1.73]} rotation={[Math.PI / 2, 0, 0]} scale={0.05} />
       <mesh geometry={nodes.Rock_4.geometry} material={materials.Rock_set} position={[-3.51, -7.35, -3.52]} rotation={[Math.PI / 2, 0, 0]} scale={0.05} />
       <mesh geometry={nodes.Rock_5.geometry} material={materials.Rock_set} position={[-0.7, -7.35, -10.22]} rotation={[Math.PI / 2, 0, 0]} scale={0.05} />
       <mesh geometry={nodes.Rock_5001.geometry} material={materials.Rock_set} position={[-5.34, -7.64, 2.58]} rotation={[-0.41, -0.96, -1.55]} scale={0.15} />
       <mesh geometry={nodes.Rock_5002.geometry} material={materials.Rock_set} position={[8.81, -1.68, -1.37]} rotation={[Math.PI / 2, 0, 0]} scale={0.1} />
-      <mesh geometry={nodes.Rock_1001.geometry} material={materials.Rock_set} position={[16.4, -3.15, -9.34]} rotation={[Math.PI / 2, 0, 0]} scale={0.13} />
-      <mesh geometry={nodes.Rock_1002.geometry} material={materials.Rock_set} position={[8.43, -7.55, -2.49]} rotation={[1.58, 0.82, -2.97]} scale={0.05} />
       <mesh geometry={nodes.Rock_5003.geometry} material={materials.Rock_set} position={[28.59, 1.44, -28.34]} rotation={[-0.03, -0.2, 0.03]} scale={[0.11, 0.06, 0.11]} />
       <mesh geometry={nodes.Rock_5004.geometry} material={materials.Rock_set} position={[4.95, -7.3, -6.31]} rotation={[Math.PI / 2, 0, 0]} scale={0.03} />
       <mesh geometry={nodes.Rock_5005.geometry} material={materials.Rock_set} position={[9.94, -7.3, 0.81]} rotation={[Math.PI / 2, 0, 0]} scale={0.03} />
@@ -60,9 +61,15 @@ export default function Model({ ...props }) {
       <mesh geometry={nodes.Rock_5040.geometry} material={materials.Rock_set} position={[-3.51, -7.25, -3.59]} rotation={[-3.14, -0.5, -3.13]} scale={[0.11, 0.04, 0.13]} />
       <mesh geometry={nodes.Rock_5041.geometry} material={materials.Rock_set} position={[-10.47, -12.97, 13.35]} rotation={[-0.97, 0.4, -2.06]} scale={[0.08, 0.18, 0.17]} />
       <mesh geometry={nodes.Rock_5042.geometry} material={materials.Rock_set} position={[35.58, -10.95, -20.34]} rotation={[-0.13, 0.73, 2.21]} scale={[0.06, 0.14, 0.13]} />
-      <mesh geometry={nodes.Earth.geometry} material={materials.earth} />
+      <mesh geometry={nodes.Clouds.geometry} material={materials.earth} />
+      <mesh geometry={nodes['milky-way'].geometry} material={materials.Material} />
+      <mesh geometry={nodes.RightBayDoor.geometry} material={materials.EndeavourSub} />
+      <mesh geometry={nodes.LeftBayDoor.geometry} material={materials.EndeavourSub} />
+      <mesh geometry={nodes.Endeavour_MSH.geometry} material={materials.EndeavourSub} />
+      <mesh geometry={nodes.Interior_MSH001.geometry} material={materials.InteriorSub} />
+      <mesh geometry={nodes.Capsule.geometry} material={materials['Material.001']} />
     </group>
   )
 }
 
-useGLTF.preload('/earth.glb')
+useGLTF.preload('/earth-transformed.glb')

@@ -10,7 +10,8 @@ export default function Model({ ...props }) {
   const { nodes, materials } = useGLTF('/helmet-transformed.glb')
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh geometry={nodes.Cube001.geometry} material={materials['Material.006']} />
+      <mesh geometry={nodes.Helmet_1.geometry} material={materials.Helmet} />
+      <mesh geometry={nodes.Helmet_2.geometry} material={materials.Window} />
     </group>
   )
 }
