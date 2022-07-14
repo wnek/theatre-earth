@@ -408,6 +408,32 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@theatre/core@0.5.0-insiders.0e724d6":
+  version "0.5.0-insiders.0e724d6"
+  resolved "https://registry.yarnpkg.com/@theatre/core/-/core-0.5.0-insiders.0e724d6.tgz#f8a40d462b618ce525c8a504f13567f81d3391b1"
+  integrity sha512-JU4qlnUn0NFQENeU+gKo26/IOuzzftMysJHGOzWzjedOskFi0CT8VVLAEVw9Kq2X5c1J053mk/0e9BTknTXisg==
+  dependencies:
+    "@theatre/dataverse" "0.5.0-insiders.0e724d6"
+
+"@theatre/dataverse@0.5.0-insiders.0e724d6":
+  version "0.5.0-insiders.0e724d6"
+  resolved "https://registry.yarnpkg.com/@theatre/dataverse/-/dataverse-0.5.0-insiders.0e724d6.tgz#e61dd283a3c42950978757fdd8d19762308d0e74"
+  integrity sha512-a9Ld8kc0eyC/VM16rZrHSTJ/y5ZG3mConut4Fs/xMPNiznG1C8g8IlMM10hfjYY2ZuXJdz+Z3MpJ684KzMfh1w==
+  dependencies:
+    lodash-es "^4.17.21"
+
+"@theatre/r3f@0.4.0-insiders.0e724d6":
+  version "0.4.0-insiders.0e724d6"
+  resolved "https://registry.yarnpkg.com/@theatre/r3f/-/r3f-0.4.0-insiders.0e724d6.tgz#1114077539936910730def0e4f7a0dd51b0e3160"
+  integrity sha512-FTrVX2aVslnVYRZE5BxwFXEenWZkOz2Oi6wR8+PYzmawS7SQR5Ogp/k7b1RwY9C6N7+UL3NtWUUbiBvLeyexWA==
+
+"@theatre/studio@0.5.0-insiders.0e724d6":
+  version "0.5.0-insiders.0e724d6"
+  resolved "https://registry.yarnpkg.com/@theatre/studio/-/studio-0.5.0-insiders.0e724d6.tgz#dbf14aa71f43b389992c48947aa752cf34f39849"
+  integrity sha512-+hggaPHxfnO9vXUO5vlVBDnErx8/3PIHxlguwfAOD0gymXfbVX/+Y1pKQnfvtIgoBJSKu7jfuYpZKLnsJb2TPQ==
+  dependencies:
+    "@theatre/dataverse" "0.5.0-insiders.0e724d6"
+
 "@types/prop-types@*":
   version "15.7.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
@@ -796,6 +822,11 @@ ktx-parse@^0.2.1:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/ktx-parse/-/ktx-parse-0.2.2.tgz#b037b66044855215b332cb73104590af49e47791"
   integrity sha512-cFBc1jnGG2WlUf52NbDUXK2obJ+Mo9WUkBRvr6tP6CKxRMvZwDDFNV3JAS4cewETp5KyexByfWm9sm+O8AffiQ==
+
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash.omit@^4.5.0:
   version "4.5.0"

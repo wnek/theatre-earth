@@ -13,6 +13,8 @@ import {
   PerspectiveCamera,
   Merged,
 } from '@react-three/drei';
+import { getProject } from '@theatre/core';
+
 import {
   EffectComposer,
   DepthOfField,
@@ -27,7 +29,8 @@ import useMeasure from 'react-use-measure';
 import { useState, useEffect, useRef, useMemo } from 'react';
 const modes = ['translate', 'rotate', 'scale'];
 const state = proxy({ current: null, mode: 0 });
-
+import { useLayoutEffect } from 'react';
+import { SheetProvider } from '@theatre/r3f';
 function Helmet(...props) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/helmet-transformed.glb');
@@ -36,8 +39,6 @@ function Helmet(...props) {
     group.current.quaternion.copy(camera.quaternion);
     group.current.position.copy(camera.position);
     group.current.translateZ(-1);
-
-    console.log(camera.quaternion);
     return null;
   });
 
@@ -601,58 +602,62 @@ function Space({ instances, ...props }) {
 }
 
 export default function App() {
+  const sheet = getProject('Earth').sheet('Scene');
+
   return (
     <Canvas
       camera={{ fov: 60, near: 0.01, far: 4000 }}
       gl={{ alpha: false }}
       shadows
     >
-      <Space />
-      <Helmet></Helmet>
+      <SheetProvider sheet={sheet}>
+        <Space />
+        <Helmet></Helmet>
 
-      <Stars
-        radius={400}
-        depth={50}
-        count={5000}
-        factor={10}
-        saturation={0}
-        fade
-        speed={1}
-      />
-
-      <color attach="background" args={['#000000']} />
-      <BigPlanetSpotlight />
-
-      <Controls />
-
-      <EffectComposer>
-        <Bloom
-          kernelSize={4}
-          luminanceThreshold={0.1}
-          luminanceSmoothing={0}
-          intensity={4}
-          opacity={0.04}
+        <Stars
+          radius={400}
+          depth={50}
+          count={5000}
+          factor={10}
+          saturation={0}
+          fade
+          speed={1}
         />
 
-        <ChromaticAberration
-          blendFunction={BlendFunction.NORMAL}
-          offset={[0.001, 0.001]}
-          opacity={0.1}
-        />
+        <color attach="background" args={['#000000']} />
+        <BigPlanetSpotlight />
 
-        <Noise
-          premultiply // enables or disables noise premultiplication
-          blendFunction={BlendFunction.SCREEN} // blend mode
-          opacity={0.5}
-        />
+        <Controls />
 
-        <Vignette
-          offset={0.5}
-          darkness={0.6}
-          eskil={false}
-          blendFunction={BlendFunction.NORMAL}
-        />
-      </EffectComposer>
+        <EffectComposer>
+          <Bloom
+            kernelSize={4}
+            luminanceThreshold={0.1}
+            luminanceSmoothing={0}
+            intensity={4}
+            opacity={0.04}
+          />
+
+          <ChromaticAberration
+            blendFunction={BlendFunction.NORMAL}
+            offset={[0.001, 0.001]}
+            opacity={0.1}
+          />
+
+          <Noise
+            premultiply // enables or disables noise premultiplication
+            blendFunction={BlendFunction.SCREEN} // blend mode
+            opacity={0.5}
+          />
+
+          <Vignette
+            offset={0.5}
+            darkness={0.6}
+            eskil={false}
+            blendFunction={BlendFunction.NORMAL}
+          />
+        </EffectComposer>
+      </SheetProvider>
     </Canvas>
   );
 }

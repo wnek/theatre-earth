@@ -1,11 +1,16 @@
-import React, { Suspense } from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import studio from '@theatre/studio';
+import extension from '@theatre/r3f/extension';
+import React, { Suspense } from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
 
-function Container (){
-return <div id="container"> </div>
-} 
+studio.extend(extension);
+studio.initialize();
+
+function Container() {
+  return <div id="container"> </div>;
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -13,7 +18,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Suspense fallback={null}>
       <App />
     </Suspense>
-    <div id="bottomStrip"></div> 
-    
+    <div id="bottomStrip"></div>
   </React.StrictMode>
-)
+);
